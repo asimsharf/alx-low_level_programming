@@ -3,7 +3,7 @@
  * Auth: Asim Abdelgadir
  */
 
-#include "asim.h"
+#include "main.h"
 
 /**
  * add - Adds two integers.

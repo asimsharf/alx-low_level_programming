@@ -3,7 +3,7 @@
  * Auth: Asim Abdelgadir
  */
 
-#include "asim.h"
+#include "main.h"
 
 /**
  * _isalpha - Checks if a character is alphabetic.
