@@ -1,4 +1,4 @@
-#include "../asim.h"
+#include "../main.h"
 
 /**
  * main - Prints the sign of a number.

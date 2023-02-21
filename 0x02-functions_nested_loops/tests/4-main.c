@@ -1,4 +1,4 @@
-#include "../asim.h"
+#include "../main.h"
 
 /**
  * main - Prints 1 if the input is a lowercase character, 0 otherwise.

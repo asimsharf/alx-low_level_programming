@@ -1,4 +1,4 @@
-#include "../asim.h"
+#include "../main.h"
 
 /**
  * main - Prints the last digit of a number.
