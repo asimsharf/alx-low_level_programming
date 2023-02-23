@@ -1,36 +1,39 @@
-/*
- * File: 100-prime_factor.c
- * Auth: Asim Abdelgadir
- */
-
 #include <stdio.h>
+#include <math.h>
 
 /**
- * main - Finds and prints the largest prime
- *        factor of the number 612852475143.
- * @div: The divisor.
- * Return: Always 0.
+ * main - finds and prints the largest prime factor of the number 612852475143
+ * followed by a new line
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	long prime = 612852475143, div = 0;
+	long int n;
+	long int max;
+	long int i;
 
-	while (div < (prime / 2))
+	n = 612852475143;
+	max = -1;
+
+	while (n % 2 == 0)
 	{
-		if ((prime % 2) == 0)
-		{
-			prime /= 2;
-			continue;
-		}
+		max = 2;
+		n /= 2;
+	}
 
-		for (div = 3; div < (prime / 2); div += 2)
+	for (i = 3; i <= sqrt(n); i = i + 2)
+	{
+		while (n % i == 0)
 		{
-			if ((prime % div) == 0)
-				prime /= div;
+			max = i;
+			n = n / i;
 		}
 	}
 
-	printf("%ld\n", prime);
+	if (n > 2)
+		max = n;
+
+	printf("%ld\n", max);
 
 	return (0);
 }
