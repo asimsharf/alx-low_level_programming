@@ -1,6 +1,6 @@
 /*
  * File: 0-isupper.c
- * Auth: Asim Abdelgadir
+ * Auth: Shawky Mohamed
  */
 
 #include "main.h"
