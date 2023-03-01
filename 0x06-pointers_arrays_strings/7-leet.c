@@ -14,17 +14,29 @@
 
 char *leet(char *str)
 {
-int i = 0, j = 0;
-char *letters = "aAeEoOtTlL";
-char *numbers = "4433007711";
+int i = 0;
+
 while (str[i] != '\0')
 {
-for (j = 0; j < 10; j++)
+if (str[i] == 'a' || str[i] == 'A')
 {
-if (str[i] == letters[j])
-{
-str[i] = numbers[j / 2];
+str[i] = '4';
 }
+if (str[i] == 'e' || str[i] == 'E')
+{
+str[i] = '3';
+}
+if (str[i] == 'o' || str[i] == 'O')
+{
+str[i] = '0';
+}
+if (str[i] == 't' || str[i] == 'T')
+{
+str[i] = '7';
+}
+if (str[i] == 'l' || str[i] == 'L')
+{
+str[i] = '1';
 }
 i++;
 }
