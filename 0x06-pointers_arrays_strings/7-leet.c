@@ -11,34 +11,22 @@
  *
  * Return: pointer to the encoded string
  */
-
 char *leet(char *str)
 {
-int i = 0;
+int indxOne = 0, indxTwo;
+char leet[8] = {'O', 'L', '?', 'E', 'A', '?', '?', 'T'};
 
-while (str[i] != '\0')
+while (str[indxOne])
 {
-if (str[i] == 'a' || str[i] == 'A')
+for (indxTwo = 0; indxTwo <= 7; indxTwo++)
 {
-str[i] = '4';
+if (str[indxOne] == leet[indxTwo] ||
+str[indxOne] - 32 == leet[indxTwo])
+str[indxOne] = indxTwo + '0';
 }
-if (str[i] == 'e' || str[i] == 'E')
-{
-str[i] = '3';
+
+indxOne++;
 }
-if (str[i] == 'o' || str[i] == 'O')
-{
-str[i] = '0';
-}
-if (str[i] == 't' || str[i] == 'T')
-{
-str[i] = '7';
-}
-if (str[i] == 'l' || str[i] == 'L')
-{
-str[i] = '1';
-}
-i++;
-}
+
 return (str);
 }
