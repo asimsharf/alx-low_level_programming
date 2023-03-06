@@ -7,13 +7,13 @@
  * Description: fills the first n bytes of the memory area pointed to by s
  */
 
-char *_memset(char *s, char b, unsigned int n)
+void *_memset(void *s, int c, size_t n)
 {
 	unsigned int i;
-	
+	unsigned char *memory = s, value = c;
+
 	for (i = 0; i < n; i++)
-	{
-		s[i] = b;
-	}
-	return (s);
+		memory[i] = value;
+
+	return (memory);
 }
