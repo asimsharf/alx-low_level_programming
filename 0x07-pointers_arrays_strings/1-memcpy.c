@@ -7,14 +7,13 @@
  * Description: copies n bytes from memory area src to memory area dest
  */
 
-void *_memcpy(void *dest, const void *src, size_t n)
+char *_memcpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int i;
-	unsigned char *destination = dest;
-	const unsigned char *source = src;
 
 	for (i = 0; i < n; i++)
-		destination[i] = source[i];
-
+	{
+		dest[i] = src[i];
+	}
 	return (dest);
 }
