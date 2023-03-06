@@ -6,6 +6,7 @@
  * or NULL if no such byte is found
  * Description: locates the first occurrence in the string s of any of the
 */
+
 char *_strpbrk(char *s, char *accept)
 {
     unsigned int i, j;
