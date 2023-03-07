@@ -6,6 +6,7 @@
  * substring is not found
  * Description: finds the first occurrence of the substring needle in the
 */
+
 char *_strstr(char *haystack, char *needle)
 {
     int i, j;
@@ -19,5 +20,5 @@ char *_strstr(char *haystack, char *needle)
             }
         }
     }
-    return (0);
+    return ('\0');
 }
