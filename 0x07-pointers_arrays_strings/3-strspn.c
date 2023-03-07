@@ -19,11 +19,11 @@ while (accept[j] != '\0')
 if (s[i] == accept[j])
 {
 count++;
-break;
 }
 j++;
 }
 i++;
+j = 0;
 }
 return (count);
 }
