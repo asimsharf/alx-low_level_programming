@@ -2,14 +2,14 @@
 
 /**
  * _print_rev_recursion - Prints a string in reverse.
- * @s: The string to be printed.
+ * @string: The string to be printed.
  */
 
-void _print_rev_recursion(char *s)
+void _print_rev_recursion(char *string)
 {
-	if (*s)
+	if (*string)
 	{
-		_print_rev_recursion(s + 1);
-		_putchar(*s);
+		_print_rev_recursion(string + 1);
+		_putchar(*string);
 	}
 }

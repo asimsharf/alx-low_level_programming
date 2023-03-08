@@ -3,62 +3,64 @@
 /**
  * strlen_no_wilds - Returns the length of a string,
  *                   ignoring wildcard characters.
- * @str: The string to be measured.
+ * @string: The string to be measured.
  *
  * Return: The length.
  */
-int strlen_no_wilds(char *str)
-{
-	int len = 0, index = 0;
 
-	if (*(str + index))
+int strlen_no_wilds(char *string)
+{
+	int length = 0, index = 0;
+
+	if (*(string + index))
 	{
-		if (*str != '*')
-			len++;
+		if (*string != '*')
+			length++;
 
 		index++;
-		len += strlen_no_wilds(str + index);
+		length += strlen_no_wilds(string + index);
 	}
 
-	return (len);
+	return (length);
 }
 
 /**
  * iterate_wild - Iterates through a string located at a wildcard
  *                until it points to a non-wildcard character.
- * @wildstr: The string to be iterated through.
+ * @wildstring: The string to be iterated through.
  */
-void iterate_wild(char **wildstr)
+void iterate_wild(char **wildstring)
 {
-	if (**wildstr == '*')
+	if (**wildstring == '*')
 	{
-		(*wildstr)++;
-		iterate_wild(wildstr);
+		(*wildstring)++;
+		iterate_wild(wildstring);
 	}
 }
 
 /**
- * postfix_match - Checks if a string str matches the postfix of
+ * postfix_match - Checks if a string string matches the postfix of
  *                 another string potentially containing wildcards.
- * @str: The string to be matched.
+ * @string: The string to be matched.
  * @postfix: The postfix.
  *
- * Return: If str and postfix are identical - a pointer to the null byte
+ * Return: If string and postfix are identical - a pointer to the null byte
  *                                            located at the end of postfix.
  *         Otherwise - a pointer to the first unmatched character in postfix.
  */
-char *postfix_match(char *str, char *postfix)
+
+char *postfix_match(char *string, char *postfix)
 {
-	int str_len = strlen_no_wilds(str) - 1;
-	int postfix_len = strlen_no_wilds(postfix) - 1;
+	int string_length = strlen_no_wilds(string) - 1;
+	int postfix_length = strlen_no_wilds(postfix) - 1;
 
 	if (*postfix == '*')
 		iterate_wild(&postfix);
 
-	if (*(str + str_len - postfix_len) == *postfix && *postfix != '\0')
+	if (*(string + string_length - postfix_length) == *postfix && *postfix != '\0')
 	{
 		postfix++;
-		return (postfix_match(str, postfix));
+		return (postfix_match(string, postfix));
 	}
 
 	return (postfix);
@@ -72,6 +74,7 @@ char *postfix_match(char *str, char *postfix)
  * Return: If the strings can be considered identical - 1.
  *         Otherwise - 0.
  */
+
 int wildcmp(char *s1, char *s2)
 {
 	if (*s2 == '*')
