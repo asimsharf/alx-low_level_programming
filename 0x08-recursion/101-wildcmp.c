@@ -8,6 +8,7 @@
 int strlen_no_wilds(char *string)
 {
 	int length = 0, index = 0;
+
 	if (*(string + index))
 	{
 		if (*string != '*')
@@ -42,7 +43,9 @@ void iterate_wild(char **wildstring)
 char *postfix_match(char *string, char *postfix)
 {
 	int string_length = strlen_no_wilds(string) - 1;
+	
 	int postfix_length = strlen_no_wilds(postfix) - 1;
+
 	if (*postfix == '*')
 		iterate_wild(&postfix);
 	if (*(string + string_length - postfix_length) == *postfix && *postfix != '\0')
