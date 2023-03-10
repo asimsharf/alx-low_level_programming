@@ -1,9 +1,9 @@
-check:
-	./betty/betty-style.pl func/*.c *.h main/*.c && ./betty/betty-doc.pl func/*.c *.h main/*.c
-
-git:
-	git add .
-	git commit -m "update"
-	git push origin master
 clean:
-	rm -rf *~
+    rm -rf *~ *.o *.a
+
+style:
+    ./betty/betty-style.pl *.c *.h *.c
+	
+doc:
+	./betty/betty-doc.pl *.c *.h *.c
+
