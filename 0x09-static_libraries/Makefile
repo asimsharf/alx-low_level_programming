@@ -1,5 +1,5 @@
 check:
-	./betty/betty-style.pl *.c *.h && ./betty/betty-doc.pl *.c *.h
+	./betty/betty-style.pl func/*.c *.h main/*.c && ./betty/betty-doc.pl func/*.c *.h main/*.c
 
 git:
 	git add .
