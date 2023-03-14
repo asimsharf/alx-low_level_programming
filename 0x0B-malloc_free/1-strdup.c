@@ -5,9 +5,8 @@
  * _strdup - create an array of chars
  * @str: char
  *
- * Return: char pointer
+ * Return: char
  */
-
 char *_strdup(char *str)
 {
 	char *res;
@@ -19,10 +18,8 @@ char *_strdup(char *str)
 	{
 		i++;
 	}
-
 	i++;
 	res = malloc(i * sizeof(char));
-
 	if (res == NULL)
 		return (NULL);
 	for (j = 0; j <= i; j++)
