@@ -6,7 +6,7 @@
  * @ac: pointer
  * @av: altura
  *
- * REturn: result
+ * Return: char pointer
  */
 
 char *argstostr(int ac, char **av)
