@@ -1,4 +1,4 @@
-#include "stdlib.h"
+#include <stdlib.h>
 #include "main.h"
 
 /**
@@ -8,16 +8,12 @@
  * Return: pointer
  */
 
-void *malloc_checked(unsigned int b){
+void *malloc_checked(unsigned int b)
+{
+	unsigned int *point;
 
-  unsigned int *res;
-
-  res = malloc(b);
-
-  if(res == NULL){
-    exit(98);
-  }
-  
-  return (res);
-
+	point = malloc(b);
+	if (point == NULL)
+		exit(98);
+	return (point);
 }
