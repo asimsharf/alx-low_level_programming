@@ -6,47 +6,51 @@ void closer(int arg_files);
  * @argv: array pointer for args
  * Return: 0
  */
+
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, read_b;
-	size_t len = 1024;
-	char buf[1024];
+	int arg_files[2];
+	ssize_t read_letters, write_letters;
+	char *buf = malloc(sizeof(char) * 1024);
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to \n");
 		exit(97);
 	}
-
-	file_from = open(argv[1], O_RDONLY);
-	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-
-	if (file_from == -1)
+	arg_files[0] = open(argv[1], O_RDONLY);
+	if (arg_files[0] == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s \n", argv[1]);
 		exit(98);
 	}
+	arg_files[1] = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 
-	if (file_to == -1)
+	if (arg_files[1] == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s \n", argv[2]);
 		exit(99);
 	}
 
-	while ((read_b = read(file_from, buf, len)) > 0)
-		write(file_to, buf, len); 
-
-
-	if (!close(file_from));
+	while ((read_letters = read(arg_files[0], buf, 1024)) > 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
-		exit(100);
+		write_letters = write(arg_files[1], buf, read_letters);
+		if (write_letters == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s \n", argv[2]);
+			exit(99);
+		}
 	}
 
-	if (!close(file_to))
+	if (read_letters == -1)
 	{
-		dprintf(STDERR_FILENO,"Error: Can't close fd %d\n", file_to);
-		exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s \n", argv[1]);
+		exit(98);
 	}
+
+	closer(arg_files);
+
+	free(buf);
+
 	return (0);
 }
