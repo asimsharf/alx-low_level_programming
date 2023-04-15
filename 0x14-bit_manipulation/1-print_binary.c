@@ -1,33 +1,35 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include "main.h"
 /**
- * print_binary - Entry Point
- * @n: dec input
- * Return: 0
+ * print_binary - convert function
+ * DESCRIPTION: a function that converts a decimal
+ * number to a binary
+ * @n: number to be converted
  */
 void print_binary(unsigned long int n)
 {
-	int i = 0, count, k, temp;
+	unsigned long int mask = 1UL << 63;
+	int i, f = 0;
 
-	if (n == 0)
+	for (i = 0; i < 64; i++)
 	{
-		printf("0");
-		return;
+		if (n & mask)
+		{
+			_putchar('1');
+			f = 1;
+		} else
+		{
+			if (f)
+			{
+				_putchar('0');
+			}
+		}
+		mask >>= 1;
 	}
-
-	temp = n;
-
-	while (temp != 0)
+	if (!f)
 	{
-		i++;
-		temp = temp >> 1;
-	}
-
-	for (count = i - 1; count >= 0; count--)
-	{
-		k = n >> count;
-		if (k & 1)
-			printf("1");
-		else
-			printf("0");
+		_putchar('0');
 	}
 }
