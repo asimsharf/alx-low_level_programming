@@ -9,21 +9,21 @@
  * to get from one number to another
  */
 
-unsigned int flip_bits(unsigned long int n, unsigned long int m){
-    unsigned long int i = 1;
-    unsigned int count = 0;
+unsigned int flip_bits(unsigned long int n, unsigned long int m)
+{
+	unsigned long int i = 1;
+	unsigned int count = 0;
 
-    while (i <= n)
-    {
-        i <<= 1;
-        count++;
-    }
-    while (count > 0)
-    {
-        i >>= 1;
-        if ((n & i) != (m & i))
-            count++;
-        count--;
-    }
-    return (count);
+	while (i <= n)
+	{
+		i <<= 1;
+		count++;
+	}
+	while (count > 0)
+	{
+		if ((n & i) != (m & i))
+			count--;
+		i >>= 1;
+	}
+	return (count);
 }

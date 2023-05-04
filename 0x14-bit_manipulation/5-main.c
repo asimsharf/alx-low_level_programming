@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -9,15 +10,13 @@ int main(void)
 {
 	unsigned int n;
 
-	n = binary_to_uint("1");
+	n = flip_bits(1024, 1);
 	printf("%u\n", n);
-	n = binary_to_uint("101");
+	n = flip_bits(402, 98);
 	printf("%u\n", n);
-	n = binary_to_uint("1e01");
+	n = flip_bits(1024, 3);
 	printf("%u\n", n);
-	n = binary_to_uint("1100010");
-	printf("%u\n", n);
-	n = binary_to_uint("0000000000000000000110010010");
+	n = flip_bits(1024, 1025);
 	printf("%u\n", n);
 	return (0);
 }
