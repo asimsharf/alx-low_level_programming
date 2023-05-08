@@ -19,7 +19,6 @@ int main(int argc, char *argv[])
 	char err0[] = "Usage: elf_header elf_filename\n";
 	char err1[] = "Error: Can't read from file ";
 	char err2[] = "Error: Not an ELF file ";
-	char err3[] = "Error: Can't close fd ";
 
 	if (argc != 2)
 		dprintf(STDERR_FILENO, "%s", err0), exit(98);
